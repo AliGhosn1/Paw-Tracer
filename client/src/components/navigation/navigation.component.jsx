@@ -13,11 +13,23 @@ const Navigation = () => {
   const SliderChoices = [
     {
       name: 'Home',
-      url: 'https://i.imgur.com/QdV4UHT.png'
+      url: 'https://i.imgur.com/QdV4UHT.png',
+      link: '/app'
     },
     {
-      name: 'Other',
-      url: 'https://i.imgur.com/QdV4UHT.png'
+      name: 'Your Listings',
+      url: 'https://i.imgur.com/QdV4UHT.png',
+      link: '/app/your-listings'
+    },
+    {
+      name: 'Listings',
+      url: 'https://i.imgur.com/QdV4UHT.png',
+      link: '/app/listings'
+    },
+    {
+      name: 'Story Board',
+      url: 'https://i.imgur.com/QdV4UHT.png',
+      link: '/app/story-board'
     }
   ]
 

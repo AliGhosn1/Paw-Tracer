@@ -5,6 +5,9 @@ import { useContext } from "react";
 import SignInPage from "./routes/sign-in-page.route";
 import Navigation from "./components/navigation/navigation.component";
 import Home from "./routes/home.route";
+import ListingPage from "./routes/listing-page.route";
+import YourListingsPage from "./routes/your-listings-page.route";
+import StoryBoardPage from "./routes/story-board-page.route";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -15,8 +18,9 @@ function App() {
       {user &&
         <Route path="/app" element={<Navigation />}> 
           <Route index element={<Home />}/>
-            {/* <Route path="shop/*" element={<Shop />}/>
-            <Route path="checkout" element={<CheckOut />}/>  */}
+          <Route path="listings" element={<ListingPage />}/>
+          <Route path="your-listings" element={<YourListingsPage />}/>
+          <Route path="story-board" element={<StoryBoardPage />}/>
         </Route> 
       }
       <Route path="/*" element={<SignInPage />}/>

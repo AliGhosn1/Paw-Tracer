@@ -80,6 +80,7 @@ export const NavItemWrapper = styled.div`
     align-items: center;
     margin-left: 0.75vw;
     width: fit-content;
+    cursor: pointer;
 
     img{
         width: 1.5vw;
