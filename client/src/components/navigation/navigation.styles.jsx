@@ -66,6 +66,8 @@ export const ShrinkButton = styled.div`
     width: fit-content;
     img{
         width:1vw;
+        position: relative;
+        top: 2px;
         transform: rotate(${(props) => props.arrowRotate});
         transition: all 200ms ease-in-out;
     }
