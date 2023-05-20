@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/user.context';
 import NavigationIcon from './navigation-icon.component';
 import { NavigationHeadBar, NavigationBarContent, ProfilePicture, MainContentWrapper, OutletWrapper, NavSlider, ShrinkButton, IconsWrapper, 
-  LogoutContainer, LogoutWrapper } from './navigation.styles';
+  LogoutContainer, LogoutWrapper, ShrinkContainer, ShrinkWrapper, ShrinkButtonWrapper } from './navigation.styles';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import homeIcon from '../../assets/home.png';
@@ -69,14 +69,16 @@ const Navigation = () => {
                 <NavigationIcon item={item} open={sliderOpen}/>
               ))
             }
+            </IconsWrapper>
             <LogoutContainer onClick={onSignOutClick}>
               <LogoutWrapper open={sliderOpen}>
                 <img src={logoutIcon} />
                 <h3>Logout</h3>
               </LogoutWrapper>
             </LogoutContainer>
-            </IconsWrapper>
-            <ShrinkButton onClick={clickHandler} arrowRotate={sliderOpen ? '-180deg' : '0'}> <img src={'https://i.imgur.com/QdV4UHT.png'} /></ShrinkButton>
+            <ShrinkButtonWrapper onClick={clickHandler}>
+              <ShrinkButton arrowRotate={sliderOpen ? '-180deg' : '0'}> <img src={'https://i.imgur.com/QdV4UHT.png'} /></ShrinkButton>
+            </ShrinkButtonWrapper>
           </NavSlider>
           <OutletWrapper marginLeft={sliderOpen ? '8vw' : '3vw'} width={sliderOpen ? '92vw' : '97vw'}>
             <Outlet />

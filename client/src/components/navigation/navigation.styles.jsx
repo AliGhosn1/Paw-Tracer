@@ -48,21 +48,24 @@ export const NavSlider = styled.div`
     transition: all 200ms ease-in-out;
     display: flex;
     flex-direction: column;
-    gap: 4vh;
 `
-
-export const ShrinkButton = styled.div`
-    position: absolute; 
-    bottom: 0; 
+export const ShrinkButtonWrapper = styled.div`
+    padding:5px 0;
+    margin: 1vh 8px;
+    border-radius: 10px;
     background-color: #D3E4CD;
-    width: 100%;
-    height:3vw;
-    margin-top: auto;
+    transition: all 200ms ease-in-out;
+    margin-bottom: 1vh;
     display: flex;
-
+    align-items: center;
+    justify-content: center;
+    height: calc(3vw - 25px);
+    cursor: pointer;
+`
+export const ShrinkButton = styled.div`
+    width: fit-content;
     img{
-        width:1.5vw;
-        margin: auto;
+        width:1vw;
         transform: rotate(${(props) => props.arrowRotate});
         transition: all 200ms ease-in-out;
     }
@@ -94,7 +97,7 @@ export const NavItemWrapper = styled.div`
     h3{
         margin: 0;
         margin-left: 1vw;
-        width: ${(props) => props.open ? 80 : 0}px;
+        width: ${(props) => props.open ? 100 : 0}px;
         overflow: hidden;
         transition: all 200ms ease-in-out;
     }
