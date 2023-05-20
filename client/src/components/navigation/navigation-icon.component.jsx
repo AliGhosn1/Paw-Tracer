@@ -9,7 +9,7 @@ const NavigationIcon = ({ item, open }) => {
         navigate(link)
     }
 
-    const current = window.location.pathname == item.link;
+    const current = link=='/app' ? window.location.pathname == link : window.location.pathname.includes(link)
 
     return (
     <NavItemContainer current={current}>

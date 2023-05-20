@@ -80,7 +80,7 @@ const Navigation = () => {
               <ShrinkButton arrowRotate={sliderOpen ? '-180deg' : '0'}> <img src={'https://i.imgur.com/QdV4UHT.png'} /></ShrinkButton>
             </ShrinkButtonWrapper>
           </NavSlider>
-          <OutletWrapper marginLeft={sliderOpen ? '8vw' : '3vw'} width={sliderOpen ? '92vw' : '97vw'}>
+          <OutletWrapper marginLeft={sliderOpen ? '10vw' : '5vw'} width={sliderOpen ? '92vw' : '97vw'}>
             <Outlet />
           </OutletWrapper>
         </MainContentWrapper>

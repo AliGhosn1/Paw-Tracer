@@ -18,7 +18,7 @@ export const NavigationBarContent = styled.div`
     margin-right: 20px;
 
     h2{
-        color: #D3E4CD;
+        color: #ADC2A9;
     }
 `
 
@@ -33,7 +33,7 @@ export const MainContentWrapper = styled.div`
 `
 
 export const OutletWrapper = styled.div`
-    margin-top: 10vh;
+    margin-top: calc(10vh + 2vw);
     margin-left: ${(props) => props.marginLeft};
     transition: all 200ms ease-in-out;
     width: ${(props) => props.width};
@@ -112,6 +112,10 @@ export const NavItemContainer = styled.div`
     background-color: ${(props) => props.current ? 'white' : 'transparent'};
     color: ${(props) => props.current ? '#99A799' : '#D3E4CD'};
     transition: all 200ms ease-in-out;
+    &:hover{
+        background-color: white;
+        color: #99A799;
+    }
 `
 
 export const LogoutContainer = styled(NavItemContainer)`
