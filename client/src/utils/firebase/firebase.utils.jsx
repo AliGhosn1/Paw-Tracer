@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore"
+
 const firebaseConfig = {
     apiKey: "AIzaSyBtVmdjK3YjqEWlWjhsxuFW9cGOFbhyrvQ",
     authDomain: "pawtracer-5770b.firebaseapp.com",

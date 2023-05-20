@@ -7,19 +7,16 @@ const SignInPage = () => {
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
 
-    /*useEffect(() => {
+    useEffect(() => {
         if(user){
             navigate('/app')
         }
         else
             navigate('/')
-    }, [user])*/
+    }, [user])
 
     return (
-        <>
-            {/* {user ? <></> : <SignIn />} */}
             <SignIn />
-        </>
     )
 }
 

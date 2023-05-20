@@ -5,14 +5,17 @@ export const NavigationHeadBar = styled.div`
     width: 100vw;
     height: 10vh;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
 
 export const NavigationBarContent = styled.div`
-    margin-left: auto;
     width: fit-content;
     display:flex;
     align-items: center;
     height: 100%;
+    margin-right: 20px;
 
     h2{
         color: #D3E4CD;
@@ -70,6 +73,7 @@ export const IconsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4vh;
+    height: 80vh;
 `
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -78,7 +82,7 @@ export const IconsWrapper = styled.div`
 export const NavItemWrapper = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 0.75vw;
+    margin-left: 6px;
     width: fit-content;
     cursor: pointer;
 
@@ -90,6 +94,30 @@ export const NavItemWrapper = styled.div`
     h3{
         margin: 0;
         margin-left: 1vw;
-        color: #D3E4CD;
+        width: ${(props) => props.open ? 80 : 0}px;
+        overflow: hidden;
+        transition: all 200ms ease-in-out;
     }
+`
+
+export const NavItemContainer = styled.div`
+    padding:5px 0;
+    margin: 0 8px;
+    border-radius: 10px;
+    background-color: ${(props) => props.current ? 'white' : 'transparent'};
+    color: ${(props) => props.current ? '#99A799' : '#D3E4CD'};
+    transition: all 200ms ease-in-out;
+`
+
+export const LogoutContainer = styled(NavItemContainer)`
+    margin-top: auto;
+    &:hover{
+        background-color: white;
+        color: #99A799;
+    }
+    transition: all 200ms ease-in-out;
+`
+
+export const LogoutWrapper = styled(NavItemWrapper)`
+    
 `

@@ -1,4 +1,4 @@
-import { NavItemWrapper } from "./navigation.styles";
+import { NavItemContainer, NavItemWrapper } from "./navigation.styles";
 import { useNavigate } from "react-router";
 
 const NavigationIcon = ({ item, open }) => {
@@ -9,11 +9,15 @@ const NavigationIcon = ({ item, open }) => {
         navigate(link)
     }
 
+    const current = window.location.pathname == item.link;
+
     return (
-    <NavItemWrapper onClick={clickHandler} open={open}>
-        <img src={url} />
-        {open && <h3>{ name }</h3>}
-    </NavItemWrapper>
+    <NavItemContainer current={current}>
+        <NavItemWrapper onClick={clickHandler} open={open}>
+            <img src={url} />
+            <h3>{ name }</h3>
+        </NavItemWrapper>
+    </NavItemContainer>
     )
 }
 

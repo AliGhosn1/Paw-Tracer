@@ -1,6 +1,6 @@
-import YourListingsPost from "./your-listings-post.component";
+import ProfilePost from "./profilePost.component";
 
-const YourListings = () => {
+const Profile = () => {
     const listings = [
         {
             name: "Bob",
@@ -14,11 +14,11 @@ const YourListings = () => {
         <>
             {
                 listings.map((item) => (
-                    <YourListingsPost item={item} />
+                    <ProfilePost key={item.name} item={item} />
                 ))
             }
         </>
     ) 
 }
 
-export default YourListings;
+export default Profile;
