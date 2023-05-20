@@ -1,17 +1,10 @@
-import { UserContext } from "../contexts/user.context";
-import { useContext } from "react";
-
-import SignIn from "../components/sign-in/sign-in.component";
-import HomePage from "../components/homepage/homepage.component";
+import React from 'react'
+import HomePage from '../components/homepage/homepage.component'
 
 const Home = () => {
-    const { user } = useContext(UserContext);
-
-    return (
-        <>
-            {user ? <HomePage /> : <SignIn />}
-        </>
-    )
+  return (
+    <HomePage />
+  )
 }
 
 export default Home

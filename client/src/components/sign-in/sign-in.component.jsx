@@ -1,13 +1,10 @@
 import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
-import { UserContext } from "../../contexts/user.context";
-import { useContext } from "react";
 
 import { SignInWrapper, CustomGoogleBTN, GoogleText, SignInTitle, SignInContent } from "./sign-in.styles";
 import { PawTracer } from "../general.styles";
 import { ReactComponent as GoogleLogo } from "../../assets/google.svg";
 
 const SignIn = () => {
-    const { user } = useContext(UserContext);
 
     const logGoogleUser = async () =>{
         await signInWithGooglePopup();
