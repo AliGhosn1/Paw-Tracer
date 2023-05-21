@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore"
+import { getFirestore, doc, getDoc, setDoc, arrayUnion, updateDoc, collection, query, getDocs, arrayRemove } from "firebase/firestore"
 
 const firebaseConfig = {
     apiKey: "AIzaSyBtVmdjK3YjqEWlWjhsxuFW9cGOFbhyrvQ",
@@ -44,6 +44,75 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
     }
 
     return userDocRef;
+}
+
+export const createUserPost = async (userAuth, userPost) =>{
+    if(!userAuth || !userPost) return;
+    
+    const userDocRef = doc(db, "users", userAuth.uid);
+    const postsDocRef = doc(db, "posts", "posts");
+
+    try{
+        await updateDoc(userDocRef, {
+            posts: arrayUnion(userPost)
+        });
+        await updateDoc(postsDocRef, {
+            allPosts: arrayUnion({...userPost, user: userAuth.uid})
+        });
+    }
+
+    catch(error){
+        console.log("error creating post", error.message);
+    }
+    
+    return userDocRef;
+}
+
+export const deleteUserPost = async (userAuth, userPost) =>{
+    if(!userAuth || !userPost) return;
+    
+    const userDocRef = doc(db, "users", userAuth.uid);
+    const postsDocRef = doc(db, "posts", "posts");
+
+    try{
+        await updateDoc(userDocRef, {
+            posts: arrayRemove(userPost)
+        });
+        await updateDoc(postsDocRef, {
+            allPosts: arrayRemove({...userPost, user: userAuth.uid})
+        });
+    }
+
+    catch(error){
+        console.log("error creating post", error.message);
+    }
+    
+    return userDocRef;
+}
+
+export const getAllListings = async () => {
+    const collectionRef = collection(db, 'posts');
+    const q = query(collectionRef);
+
+    const querySnapshot = await getDocs(q);
+
+    const allListings = querySnapshot.docs[0].data().allPosts
+
+    return allListings;
+}
+
+export const getUserListings = async (user) => {
+    const userDocRef = doc(db, "users", user.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    return userDoc.data().posts;
+}
+
+export const getDisplayName = async (userUid) => {
+    const userDocRef = doc(db, "users", userUid);
+    const userDoc = await getDoc(userDocRef);
+
+    return userDoc.data().displayName;
 }
 
 export const signOutUser = () => signOut(auth);

@@ -1,19 +1,23 @@
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+
 import ProfilePost from "./profilePost.component";
+import { UserContext } from "../../contexts/user.context";
+
 
 const Profile = () => {
-    const listings = [
-        {
-            name: "Bob",
-            type: "Cat",
-            pic: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_640.jpg',
-            desc: "Hi this is Bob he is very nice cat. He likes biryani."
-        }
-    ]
+    const navigate = useNavigate();
+    const { currentUserListings } = useContext(UserContext);
+
+    const onCreateClick = () => {
+        navigate('create')
+    }
 
     return(
         <>
-            {
-                listings.map((item) => (
+            <button onClick={onCreateClick}>ADD</button>
+            {currentUserListings &&
+                currentUserListings.map((item) => (
                     <ProfilePost key={item.name} item={item} />
                 ))
             }

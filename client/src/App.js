@@ -8,6 +8,7 @@ import Home from "./routes/home.route";
 import ListingPage from "./routes/listings.route";
 import UserProfile from "./routes/profile.route";
 import StoryBoardPage from "./routes/story-board-page.route";
+import Create from "./routes/create.route";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -19,7 +20,10 @@ function App() {
           <Route index element={<Home />}/>
           <Route path="story-board" element={<StoryBoardPage />}/>
           <Route path="listings" element={<ListingPage />}/>
-          <Route path="profile" element={<UserProfile />}/>
+          <Route path="profile">
+            <Route index element={<UserProfile />}/>
+            <Route path="create" element={<Create />}/>
+          </Route>
         </Route> }
         <Route path="/*" element={<SignInPage />}/>   
     </Routes>
