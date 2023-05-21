@@ -34,9 +34,13 @@ const Create = () => {
     return (
     <div>
         <form onSubmit={handleSubmit}>
+            <h1>Name</h1>
             <input type="text" name="name" value={name} onChange={handleChange} required/>
+            <h1>desc</h1>
             <input type="text" name="desc" value={desc} onChange={handleChange} required/>
+            <h1>pic(use url for now)</h1>
             <input type="text" name="pic" value={pic} onChange={handleChange} required/>
+            <h1>type</h1>
             <input type="text" name="type" value={type} onChange={handleChange} required/>
 
             <button type="submit">Submit</button>
