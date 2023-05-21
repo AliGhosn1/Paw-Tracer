@@ -106,7 +106,15 @@ export const getUserListings = async (user) => {
     const userDocRef = doc(db, "users", user.uid);
     const userDoc = await getDoc(userDocRef);
 
-    return userDoc.data().posts;
+    try{
+        return userDoc.data().posts;
+    }
+
+    catch(error){
+        console.log(error.message);
+    }
+
+    return [];
 }
 
 export const getDisplayName = async (userUid) => {
