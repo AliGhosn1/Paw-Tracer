@@ -96,6 +96,7 @@ export const HomepagePostWrapper = styled.div`
     img{
         margin: auto;
         width: 90%;
+        height: 75%;
         border-radius: 10px;
     }
 

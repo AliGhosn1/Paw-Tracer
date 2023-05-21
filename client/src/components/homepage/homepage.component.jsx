@@ -1,7 +1,10 @@
+import { getAllListings } from "../../utils/firebase/firebase.utils"
 import HomapegeNewPost from "./homapegeNewPost.component"
 import { HomePageWrapper, TodaysStoryWrapper, NewestPostWrapper, Heading } from "./homepage.styles"
+import { useState, useEffect } from "react"
 
 const HomePage = () => {
+  const [newListings, setNewListings] = useState([]);
 
   const TodaysStory = {
     img: 'https://assets3.thrillist.com/v1/image/3148428/600x400/flatten;crop;jpeg_quality=60.jpg',
@@ -9,28 +12,15 @@ const HomePage = () => {
     title: 'Clever Shelter Dog Discovers A Unique Way Of Getting Attention'
   }
 
-  const NewestPosts = [
-    {
-      img: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_640.jpg',
-      dest: 'https://www.thedodo.com/daily-dodo/clever-shelter-dog-discovers-a-unique-way-of-getting-attention',
-      title: 'Bob'
-    },
-    {
-      img: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_640.jpg',
-      dest: 'https://www.thedodo.com/daily-dodo/clever-shelter-dog-discovers-a-unique-way-of-getting-attention',
-      title: 'Juddy'
-    },
-    {
-      img: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_640.jpg',
-      dest: 'https://www.thedodo.com/daily-dodo/clever-shelter-dog-discovers-a-unique-way-of-getting-attention',
-      title: 'Bobby'
-    },
-    {
-      img: 'https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_640.jpg',
-      dest: 'https://www.thedodo.com/daily-dodo/clever-shelter-dog-discovers-a-unique-way-of-getting-attention',
-      title: 'Chuddi'
-    },
-  ]
+
+    useEffect(() => {
+        const fetchNewListings = async () => {
+            const categoryMap = await getAllListings();
+            setNewListings(categoryMap.slice(0, 4));
+        }; 
+
+        fetchNewListings();
+    }, []) 
 
   return (
     <>
@@ -49,8 +39,8 @@ const HomePage = () => {
         <h1>Our New Friends</h1>
         <div className="posts">
           {
-            NewestPosts.map((post) => (
-              <HomapegeNewPost key={post.title} post={post}/>
+            newListings.map((post) => (
+              <HomapegeNewPost key={post.name} post={post}/>
             ))
           }
         </div>

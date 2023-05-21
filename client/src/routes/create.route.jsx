@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { FormWrapper, InputContainer, InputWrapper, LabelWrapper, SubmitButton, TextAreaContainer } from "./create.styles";
 
 const Create = () => {
-    const { user } = useContext(UserContext);
+    const { user, fetchAllListings } = useContext(UserContext);
     const navigate = useNavigate();
 
     const defaultFormFields = {
@@ -30,6 +30,7 @@ const Create = () => {
         createUserPost(user, currentInfo);
         setCurrentInfo(defaultFormFields);
         navigate('/app/profile');
+        fetchAllListings();
     }
 
     return (

@@ -2,12 +2,11 @@ import React from 'react'
 import { HomepagePostWrapper } from './homepage.styles';
 
 const HomapegeNewPost = ({ post }) => {
-    const { img, dest, title } = post;
+    const { pic, name } = post;
     return (
     <HomepagePostWrapper>
-        {title}
-        <img src={img} />
-        <h5><a href={dest} target="_blank">See More &#8594;</a></h5>
+        {name}
+        <img src={pic} />
     </HomepagePostWrapper>
     )
 }

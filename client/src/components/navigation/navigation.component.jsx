@@ -66,7 +66,7 @@ const Navigation = () => {
             <IconsWrapper>
             {
               SliderChoices.map((item) => (
-                <NavigationIcon item={item} open={sliderOpen}/>
+                <NavigationIcon key={item.name} item={item} open={sliderOpen}/>
               ))
             }
             </IconsWrapper>
@@ -77,10 +77,10 @@ const Navigation = () => {
               </LogoutWrapper>
             </LogoutContainer>
             <ShrinkButtonWrapper onClick={clickHandler}>
-              <ShrinkButton arrowRotate={sliderOpen ? '-180deg' : '0'}> <img src={'https://i.imgur.com/QdV4UHT.png'} /></ShrinkButton>
+              <ShrinkButton arrowrotate={sliderOpen ? '-180deg' : '0'}> <img src={'https://i.imgur.com/QdV4UHT.png'} /></ShrinkButton>
             </ShrinkButtonWrapper>
           </NavSlider>
-          <OutletWrapper marginLeft={sliderOpen ? '10vw' : '5vw'} width={sliderOpen ? '92vw' : '97vw'}>
+          <OutletWrapper marginleft={sliderOpen ? '10vw' : '5vw'} width={sliderOpen ? '92vw' : '97vw'}>
             <Outlet />
           </OutletWrapper>
         </MainContentWrapper>

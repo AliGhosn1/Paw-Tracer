@@ -10,10 +10,11 @@ import { PostDesc } from "./your-listings.styles";
 
 const ProfilePost = ({item}) => {
     const { name, type, pic, desc } = item;
-    const { user } = useContext(UserContext);
+    const { user, fetchAllListings } = useContext(UserContext);
 
     const handleDelete = () => {
         deleteUserPost(user, item);
+        fetchAllListings();
     }
 
     return(

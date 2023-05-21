@@ -23,7 +23,7 @@ const Listing = () => {
             <PostsContainer>
                 {allListings &&
                     allListings.map((listing) => (
-                        <ListingPost listing={listing} />
+                        <ListingPost key={listing.name} listing={listing} />
                     ))
                 }
             </PostsContainer>

@@ -64,7 +64,6 @@ export const createUserPost = async (userAuth, userPost) =>{
     catch(error){
         console.log("error creating post", error.message);
     }
-    
     return userDocRef;
 }
 
@@ -97,23 +96,20 @@ export const getAllListings = async () => {
     const querySnapshot = await getDocs(q);
 
     const allListings = querySnapshot.docs[0].data().allPosts
-
-    return allListings;
+    return allListings.reverse();
 }
 
 export const getUserListings = async (user) => {
     if(!user) return;
     const userDocRef = doc(db, "users", user.uid);
     const userDoc = await getDoc(userDocRef);
-
     try{
-        return userDoc.data().posts;
+        return userDoc.data().posts.reverse();
     }
 
     catch(error){
         console.log(error.message);
     }
-
     return [];
 }
 

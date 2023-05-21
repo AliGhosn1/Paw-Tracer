@@ -35,7 +35,7 @@ export const MainContentWrapper = styled.div`
 
 export const OutletWrapper = styled.div`
     margin-top: calc(10vh + 2vw);
-    margin-left: ${(props) => props.marginLeft};
+    margin-left: ${(props) => props.marginleft};
     transition: all 200ms ease-in-out;
     width: ${(props) => props.width};
 `
@@ -69,7 +69,7 @@ export const ShrinkButton = styled.div`
         width:1vw;
         position: relative;
         top: 2px;
-        transform: rotate(${(props) => props.arrowRotate});
+        transform: rotate(${(props) => props.arrowrotate});
         transition: all 200ms ease-in-out;
     }
 `
