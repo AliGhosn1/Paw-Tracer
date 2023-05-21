@@ -4,12 +4,12 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signO
 import { getFirestore, doc, getDoc, setDoc, arrayUnion, updateDoc, collection, query, getDocs, arrayRemove } from "firebase/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBtVmdjK3YjqEWlWjhsxuFW9cGOFbhyrvQ",
-    authDomain: "pawtracer-5770b.firebaseapp.com",
-    projectId: "pawtracer-5770b",
-    storageBucket: "pawtracer-5770b.appspot.com",
-    messagingSenderId: "42821221714",
-    appId: "1:42821221714:web:4ec7d93ce6dfb0a4a38e8b"
+    apiKey: "AIzaSyAYk6XQCADnWnH2rRTUZBgJA7IEpXVlriM",
+    authDomain: "paw-tracer.firebaseapp.com",
+    projectId: "paw-tracer",
+    storageBucket: "paw-tracer.appspot.com",
+    messagingSenderId: "277986679875",
+    appId: "1:277986679875:web:f4a993d7b7ec11832e08f6"
   };
 
 const app = initializeApp(firebaseConfig);
@@ -36,7 +36,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
         const createdAt = new Date();
 
         try{
-            await setDoc(userDocRef, {displayName, email, createdAt, ...additionalInformation})
+            await setDoc(userDocRef, {displayName, email, createdAt, posts:[], ...additionalInformation})
         }
         catch(error){
             console.log("error creating user", error.message)
@@ -102,6 +102,7 @@ export const getAllListings = async () => {
 }
 
 export const getUserListings = async (user) => {
+    if(!user) return;
     const userDocRef = doc(db, "users", user.uid);
     const userDoc = await getDoc(userDocRef);
 
@@ -109,6 +110,7 @@ export const getUserListings = async (user) => {
 }
 
 export const getDisplayName = async (userUid) => {
+    if(!userUid) return;
     const userDocRef = doc(db, "users", userUid);
     const userDoc = await getDoc(userDocRef);
 

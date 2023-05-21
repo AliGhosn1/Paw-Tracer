@@ -1,5 +1,5 @@
 import HomapegeNewPost from "./homapegeNewPost.component"
-import { HomePageWrapper, TodaysStoryWrapper, NewestPostWrapper } from "./homepage.styles"
+import { HomePageWrapper, TodaysStoryWrapper, NewestPostWrapper, Heading } from "./homepage.styles"
 
 const HomePage = () => {
 
@@ -33,7 +33,10 @@ const HomePage = () => {
   ]
 
   return (
+    <>
+    <Heading>HOME</Heading>
     <HomePageWrapper>
+      
       <TodaysStoryWrapper>
         <h1>Today's Headline</h1>
         <p>{ TodaysStory.title }</p>
@@ -53,6 +56,8 @@ const HomePage = () => {
         </div>
       </NewestPostWrapper>
     </HomePageWrapper>
+    </>
+    
   )
 }
 

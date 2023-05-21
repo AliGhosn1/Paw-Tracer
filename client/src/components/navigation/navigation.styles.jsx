@@ -8,6 +8,7 @@ export const NavigationHeadBar = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 `
 
 export const NavigationBarContent = styled.div`
@@ -18,7 +19,7 @@ export const NavigationBarContent = styled.div`
     margin-right: 20px;
 
     h2{
-        color: #ADC2A9;
+        color: #FEF5ED;
     }
 `
 
@@ -116,6 +117,7 @@ export const NavItemContainer = styled.div`
         background-color: white;
         color: #99A799;
     }
+    cursor: pointer;
 `
 
 export const LogoutContainer = styled(NavItemContainer)`

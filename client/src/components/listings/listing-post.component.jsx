@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { getDisplayName } from "../../utils/firebase/firebase.utils";
 
+import { PostWrapper } from "../profile/your-listings.styles";
+import { PostHeading } from "../profile/your-listings.styles";
+import { PostPicture } from "../profile/your-listings.styles";
+import { PostType } from "../profile/your-listings.styles";
+import { PostDesc } from "../profile/your-listings.styles";
+import { UserHeading } from "./listing.styles";
+
 const ListingPost = ({ listing }) => {
     const { desc, name, pic, type, user } = listing;
     const [owner, setOwner] = useState(null);
@@ -15,15 +22,25 @@ const ListingPost = ({ listing }) => {
     }, [])
 
     return (
-        <div>
+        <>
             {owner &&
-                <>
-                    <h1>{ name }</h1>
-                    <p>{ desc }</p>
-                    <h2>{ owner }</h2>
-                </>
+                    <PostWrapper>
+                        <PostHeading>
+                            {name} 
+                           <UserHeading>
+                            Posted by {owner}
+                           </UserHeading>
+                        </PostHeading>
+                        <PostPicture src={pic}/>
+                        <PostType>
+                            {type} 
+                        </PostType>
+                        <PostDesc>
+                            {desc}
+                        </PostDesc>
+                    </PostWrapper>
             }
-        </div>
+        </>
     )
 }
 

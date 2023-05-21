@@ -26,11 +26,11 @@ const Navigation = () => {
       url: homeIcon,
       link: '/app'
     },
-    {
-      name: 'Story',
-      url: storyIcon,
-      link: '/app/story-board'
-    },
+    // {
+    //   name: 'Story',
+    //   url: storyIcon,
+    //   link: '/app/story-board'
+    // },
     {
       name: 'Listings',
       url: listingIcon,

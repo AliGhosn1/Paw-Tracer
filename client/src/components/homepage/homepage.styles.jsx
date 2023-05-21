@@ -4,13 +4,23 @@ export const HomePageWrapper = styled.div`
     display: flex;
 `
 
+export const Heading = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #99A799;
+`
+
 export const TodaysStoryWrapper = styled.div`
     background-color: #99A799;
     margin-right: 2vw;
     border-radius: 10px;
     padding: 0.5vw 1vw;
     width: 65%;
-    height: calc(90vh - 4.5vw);
+    height: calc(84vh - 4.5vw);
     
     h1{
         color: #ADC2A9;
@@ -28,7 +38,7 @@ export const TodaysStoryWrapper = styled.div`
     .img{
         margin-bottom: 1.5%;
         width: 100%;
-        height: 80%;
+        height: 70%;
         overflow: hidden;
         border-radius: 15px;
         img{
@@ -51,7 +61,7 @@ export const NewestPostWrapper = styled.div`
     width: 10px;
     height: 10px;
     margin-right: 2vw;
-    height: calc(90vh - 4.5vw);
+    height: calc(84vh - 4.5vw);
     border-radius: 10px;
     padding: 0.5vw 1vw;
     width: 40%;
@@ -73,7 +83,7 @@ export const NewestPostWrapper = styled.div`
 
 export const HomepagePostWrapper = styled.div`
     background-color: #ADC2A9;
-    height: 35vh;
+    height: 30vh;
     width: 100%;
     border-radius: 10px;
     color: #D3E4CD;
